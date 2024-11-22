@@ -19,7 +19,7 @@ export default function RootLayout({
         className={`antialiased`}
       >
         <SideBar />
-        <div className="bg-secondary pl-64 min-h-screen">
+        <div className=" pl-64 min-h-screen">
           {children}
         </div>
       </body>
