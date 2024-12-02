@@ -20,10 +20,12 @@ const SideBar = () => {
                         Tasks
                     </Button>
                 </Link>
-                <Button variant="ghost" className='w-full justify-start font-medium text-md'>
-                    <ClipboardList className="mr-2" size={27} />
-                    Assignments
-                </Button>
+                <Link href="/tomorrow">
+                    <Button variant="ghost" className='w-full justify-start font-medium text-md'>
+                        <ClipboardList className="mr-2" size={27} />
+                        Tomorrow
+                    </Button>
+                </Link>
             </nav>
         </div>
     )
