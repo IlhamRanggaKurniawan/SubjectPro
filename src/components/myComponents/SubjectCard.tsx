@@ -4,7 +4,6 @@ import { GraduationCap, MapPin } from 'lucide-react'
 import { Checkbox } from '../ui/checkbox'
 
 const SubjectCard = ({ color }: { color: string }) => {
-  console.log(color)
   return (
     <Card className='relative'>
       <div className={`absolute top-0 left-0 w-full h-2 rounded-t-lg`} style={{"backgroundColor": color}}/>
