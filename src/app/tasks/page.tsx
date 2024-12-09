@@ -1,7 +1,5 @@
 import TaskCard from '@/components/myComponents/TaskCard'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { BookOpen, Calendar, Clock, NotepadText } from 'lucide-react'
 import React from 'react'
 
 const page = () => {
