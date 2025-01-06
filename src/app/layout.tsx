@@ -1,7 +1,6 @@
 "use client"
 
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
 import SideBar from "@/components/myComponents/SideBar";
 import { usePathname } from "next/navigation";
 

@@ -1,7 +1,6 @@
 import ScheduleCard from '@/components/myComponents/ScheduleCard'
 import TodayTaskCard from '@/components/myComponents/TodayTaskCard'
 import WeeklyOverview from '@/components/myComponents/WeeklyOverview'
-import { Button } from '@/components/ui/button'
 import React from 'react'
 
 const page = () => {
