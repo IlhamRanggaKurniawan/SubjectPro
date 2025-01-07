@@ -1,10 +1,28 @@
 import TaskCard from '@/components/myComponents/TaskCard'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import React from 'react'
+import { Class } from '../../../types/entity'
+import api from '@/lib/api'
 
-const page = () => {
+const page = async() => {
+    const date = new Date()
+
+    const dayName = date.toLocaleDateString("en-US", { weekday: "long" })
+    const formattedDate = date.toLocaleDateString('id-ID', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    }).replace(/\//g, '-')
+  
+    const Class: Class = await api.get(`/v1/subject/7/${dayName}?deadline=${formattedDate}`, {
+      cache: "reload"
+    })
+
+
+    console.log(Class)
+
     return (
-        <div className='p-8 w-full'>
+        <div className='p-2 md:p-8 w-full'>
             <h1 className='text-4xl font-bold mb-8'>Tasks</h1>
             <div className='flex gap-3 items-center justify-end mb-6'>
                 <Select>
@@ -32,7 +50,7 @@ const page = () => {
                     </SelectContent>
                 </Select>
             </div>
-            <div className='grid grid-cols-3 gap-6'>
+            <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-6'>
                 <TaskCard deadline='16 November 2024' notes='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, consectetur!' subject='PPLG' type='Assessment'/>
                 <TaskCard deadline='16 November 2024' notes='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, consectetur!' subject='MTK' type='Homework'/>
                 <TaskCard deadline='16 November 2024' notes='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, consectetur!' subject='PIPAS' type='Assessment'/>
@@ -45,7 +63,6 @@ const page = () => {
                 <TaskCard deadline='16 November 2024' notes='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, consectetur!' subject='Sejarah' type='Homework'/>
                 <TaskCard deadline='16 November 2024' notes='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, consectetur!' subject='Sejarah' type='Assessment'/>
                 <TaskCard deadline='16 November 2024' notes='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, consectetur!' subject='Sejarah' type='Assessment'/>
-                
             </div>
         </div>
     )

@@ -9,10 +9,10 @@ import React, {  } from 'react'
 const Page = () => {
 
   return (
-    <div className='p-8 w-full'>
+    <div className='p-2 md:p-8 w-full'>
       <h1 className='text-4xl font-bold mb-8'>Settings</h1>
       <Tabs defaultValue='account'>
-        <TabsList>
+        <TabsList className='w-full'>
           <TabsTrigger value='account'>Account</TabsTrigger>
           <TabsTrigger value='appearance'>Appearance</TabsTrigger>
           <TabsTrigger value='credentials'>Credentials</TabsTrigger>

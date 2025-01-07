@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 import { BookOpen, Calendar, Clock, NotepadText } from 'lucide-react'
 
 const TaskCard = ({ subject, type, deadline, notes }: { subject: string, type: "Homework" | "Project" | "Assessment", deadline: string, notes: string }) => {
-    let colorClass = {
+    const colorClass = {
         bg: "",
         text: ""
     }

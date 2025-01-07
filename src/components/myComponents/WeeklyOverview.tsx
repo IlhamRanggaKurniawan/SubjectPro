@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 import { Button } from '../ui/button'
 
 const WeeklyOverview = () => {
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
     return (
         <Card className='w-full'>
@@ -11,10 +11,10 @@ const WeeklyOverview = () => {
                 <CardTitle className='text-2xl'>Weekly Overview</CardTitle>
             </CardHeader>
             <CardContent>
-                <div className='grid grid-cols-7 gap-4'>
+                <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4'>
                     {days.map((day) => (
                         <div className='flex flex-col h-full w-full justify-center items-center' key={day}>
-                            <Button variant="ghost" key={day} className={`flex-col h-fit w-fit px-8 ${day == "Thu" && "bg-blue-200"}`}>
+                            <Button variant="ghost" key={day} className={`flex-col h-fit w-fit px-6 ${day == "Thu" && "bg-blue-200"}`}>
                                 <span className='font-semibold text-lg'>{day}</span>
                                 <div className='bg-secondary h-12 w-12 rounded-full flex justify-center items-center'>
                                     {Math.floor(Math.random() * 5) + 1}

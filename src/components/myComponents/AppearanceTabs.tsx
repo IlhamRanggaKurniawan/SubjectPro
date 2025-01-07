@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TabsContent } from '../ui/tabs'
 import { Card, CardContent, CardHeader } from '../ui/card'
 import { RadioGroup, RadioGroupItem } from '../ui/radio-group'
@@ -9,6 +9,10 @@ import { Button } from '../ui/button'
 
 const AppearanceTabs = () => {
     const [theme, setTheme] = useState("system")
+
+    useEffect(() => {
+        console.log(theme)
+    }, [theme])
     return (
         <TabsContent value='appearance'>
             <Card>
@@ -19,11 +23,11 @@ const AppearanceTabs = () => {
                 <CardContent>
                     <h5>Theme</h5>
                     <p className='text-slate-500 text-sm mb-4'>Select the theme</p>
-                    <RadioGroup defaultValue='system' className='flex gap-4'>
+                    <RadioGroup defaultValue='system' className='flex gap-4 flex-col'>
                         <RadioGroupItem value='light' id="light" className='sr-only' onChange={(e) => setTheme(e.currentTarget.value)} />
                         <Label
                             htmlFor="light"
-                            className="flex flex-col items-center space-y-2 cursor-pointer"
+                            className="flex flex-col items-center space-y-2 cursor-pointer w-fit"
                         >
                             <div className="items-center rounded-md border-2 border-muted p-1 hover:bg-accent">
                                 <div className="space-y-2 rounded-sm bg-[#ecedef] p-2">
@@ -41,12 +45,12 @@ const AppearanceTabs = () => {
                                     </div>
                                 </div>
                             </div>
-                            <span className="font-medium">Light</span>
+                            <span className="font-bold">Light</span>
                         </Label>
                         <RadioGroupItem value='dark' id='dark' className='sr-only' />
                         <Label
                             htmlFor="dark"
-                            className="flex flex-col items-center space-y-2 cursor-pointer"
+                            className="flex flex-col items-center space-y-2 cursor-pointer w-fit"
                         >
                             <div className="items-center rounded-md border-2 border-muted bg-popover p-1 hover:bg-accent hover:text-accent-foreground">
                                 <div className="space-y-2 rounded-sm bg-slate-950 p-2">
@@ -64,12 +68,12 @@ const AppearanceTabs = () => {
                                     </div>
                                 </div>
                             </div>
-                            <span className="font-medium">dark</span>
+                            <span className="font-bold">dark</span>
                         </Label>
                         <RadioGroupItem value='system' id="system" className='sr-only' />
                         <Label
                             htmlFor="system"
-                            className="flex flex-col items-center space-y-2 cursor-pointer"
+                            className="flex flex-col items-center space-y-2 cursor-pointer w-fit"
                         >
                             <div className='flex items-center rounded-md border-2 border-muted bg-popover p-1 hover:bg-accent hover:text-accent-foreground'>
                                 <div className='space-y-2 rounded-l-sm bg-slate-950 p-2 pr-0 w-[78px]'>
@@ -103,10 +107,12 @@ const AppearanceTabs = () => {
                                     </div>
                                 </div>
                             </div>
-                            <span className="font-medium">system</span>
+                            <span className="font-bold">system</span>
                         </Label>
                     </RadioGroup>
-                    <Button className='mt-4'>Update preferences</Button>
+                    <div className='w-full flex justify-end'>
+                        <Button className='mt-4'>Update preferences</Button>
+                    </div>
                 </CardContent>
             </Card>
         </TabsContent>

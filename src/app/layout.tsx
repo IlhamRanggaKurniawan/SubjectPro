@@ -18,9 +18,9 @@ export default function RootLayout({
         className={`antialiased`}
       >
         {!hideNavbar && <SideBar />}
-        <div className={`${hideNavbar ? "" : "pl-64 min-h-screen"}`}>
+        <div className={`${hideNavbar ? "" : "pt-12 md:pl-48 md:pt-0 lg:pl-64 min-h-screen"}`}>
           {children}
-        </div>
+        </div> 
       </body>
     </html>
   );
