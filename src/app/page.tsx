@@ -5,7 +5,6 @@ import React from 'react'
 import { Subject } from '../../types/entity'
 
 const page = async () => {
-
   const date = new Date()
 
   const dayName = date.toLocaleDateString("en-US", { weekday: "long" })
@@ -15,7 +14,7 @@ const page = async () => {
     year: 'numeric',
   }).replace(/\//g, '-')
 
-  const subjects: Subject[] = await api.get(`/v1/subject/1/${dayName}?deadline=${formattedDate}`, {
+  const subjects: Subject[] = await api.get(`/v1/subject/1/${dayName}/${formattedDate}`, {
     cache: "reload"
   })
 

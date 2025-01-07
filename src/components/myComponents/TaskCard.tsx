@@ -2,25 +2,14 @@ import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 import { BookOpen, Calendar, Clock, NotepadText } from 'lucide-react'
 
-const TaskCard = ({ subject, type, deadline, notes }: { subject: string, type: "Homework" | "Project" | "Assessment", deadline: string, notes: string }) => {
+const TaskCard = ({ subject, type, deadline, notes }: { subject: string, type: string, deadline: string, notes: string }) => {
     const colorClass = {
         bg: "",
         text: ""
     }
 
-    switch (type) {
-        case "Homework":
-            colorClass.bg = "bg-green-500"
-            colorClass.text = "text-green-500"
-            break;
-        case "Assessment":
-            colorClass.bg = "bg-yellow-300"
-            colorClass.text = "text-yellow-300"
-            break;
-        case "Project":
-            colorClass.bg = "bg-blue-500"
-            colorClass.text = "text-blue-500"
-    }
+    colorClass.bg = "bg-green-500"
+    colorClass.text = "text-green-500"
 
     return (
         <Card className='relative hover:scale-105 hover:shadow-xl transition-all duration-300'>
