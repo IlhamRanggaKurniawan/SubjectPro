@@ -23,7 +23,7 @@ const AppearanceTabs = () => {
                 <CardContent>
                     <h5>Theme</h5>
                     <p className='text-slate-500 text-sm mb-4'>Select the theme</p>
-                    <RadioGroup defaultValue='system' className='flex gap-4 flex-col'>
+                    <RadioGroup defaultValue='system' className='flex gap-4 flex-col lg:flex-row'>
                         <RadioGroupItem value='light' id="light" className='sr-only' onChange={(e) => setTheme(e.currentTarget.value)} />
                         <Label
                             htmlFor="light"

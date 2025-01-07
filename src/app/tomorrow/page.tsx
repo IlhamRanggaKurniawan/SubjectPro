@@ -5,18 +5,16 @@ import { Subject } from '../../../types/entity'
 
 const page = async () => {
     const date = new Date()
+    const colors = ['#4CAF50', '#2196F3', '#ffcd38', '#9C27B0', '#FF5722', '#673AB7'];
 
     date.setDate(date.getDate() + 1)
 
     const dayName = date.toLocaleDateString("en-US", { weekday: "long" })
-
-    console.log(dayName)
+    const getRandomColor = () => colors[Math.floor(Math.random() * colors.length)];
 
     const subjects: Subject[] = await api.get(`/v1/subject/1/${dayName}`, {
         cache: "no-cache"
     })
-
-    console.log(subjects)
 
     return (
         <div className='p-2 md:p-8 w-full'>
@@ -25,7 +23,7 @@ const page = async () => {
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {subjects && subjects.map((subject) => {
                     return subject.Schedules.map((schedule) => (
-                        <SubjectCard key={schedule.Id} subject={subject.Name} tasks={subject.Tasks} color='#4CAF50' startTime={schedule.StartTime} endTime={schedule.EndTime} />
+                        <SubjectCard key={schedule.Id} subject={subject.Name} tasks={subject.Tasks} color={getRandomColor()} startTime={schedule.StartTime} endTime={schedule.EndTime} />
                     ))
                 })}
                 {/* <SubjectCard color='#2196F3' />

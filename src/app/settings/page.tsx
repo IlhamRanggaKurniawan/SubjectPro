@@ -1,10 +1,9 @@
 "use client"
 
-import AccountTabs from '@/components/myComponents/AccountTabs'
 import AppearanceTabs from '@/components/myComponents/AppearanceTabs'
 import CredentialsTabs from '@/components/myComponents/CredentialsTabs'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import React, {  } from 'react'
+import React from 'react'
 
 const Page = () => {
 
@@ -12,12 +11,12 @@ const Page = () => {
     <div className='p-2 md:p-8 w-full'>
       <h1 className='text-4xl font-bold mb-8'>Settings</h1>
       <Tabs defaultValue='account'>
-        <TabsList className='w-full'>
-          <TabsTrigger value='account'>Account</TabsTrigger>
+        <TabsList className='w-full sm:w-fit'>
+          {/* <TabsTrigger value='account'>Account</TabsTrigger> */}
           <TabsTrigger value='appearance'>Appearance</TabsTrigger>
           <TabsTrigger value='credentials'>Credentials</TabsTrigger>
         </TabsList>
-        <AccountTabs />
+        {/* <AccountTabs /> */}
         <AppearanceTabs />
         <CredentialsTabs />
       </Tabs>
