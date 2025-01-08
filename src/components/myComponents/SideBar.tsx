@@ -1,11 +1,15 @@
-import { Menu, X } from 'lucide-react';
+"use client"
+
+import { Menu, User, X } from 'lucide-react';
 import React, { useState } from 'react'
 import { Button } from '../ui/button'
 import { Book, ClipboardList, Home, Settings } from 'lucide-react'
 import Link from 'next/link'
+import useSession from '@/lib/useSession';
 
 const SideBar = () => {
     const [showNavigation, setShowNavigation] = useState(false)
+    const session = useSession()
     return (
         <div>
             <div className='w-full h-12 bg-background z-10 p-3 fixed top-0 left-0 md:hidden'>
@@ -35,6 +39,14 @@ const SideBar = () => {
                                     Tomorrow
                                 </Button>
                             </Link>
+                            {(session && session.role !== "Student") && (
+                                <Link href="/admin">
+                                    <Button variant="ghost" className="w-full justify-start font-medium text-md">
+                                        <User className="mr-2" size={27} />
+                                        Admin
+                                    </Button>
+                                </Link>
+                            )}
                             <Link href="/settings" onClick={() => setShowNavigation(false)}>
                                 <Button variant="ghost" className="w-full justify-start font-medium text-md">
                                     <Settings className="mr-2" size={27} />
@@ -66,6 +78,14 @@ const SideBar = () => {
                             Tomorrow
                         </Button>
                     </Link>
+                    {(session && session.role !== "Student") && (
+                        <Link href="/admin">
+                            <Button variant="ghost" className="w-full justify-start font-medium text-md">
+                                <User className="mr-2" size={27} />
+                                Admin
+                            </Button>
+                        </Link>
+                    )}
                 </nav>
                 <Link href="/settings">
                     <Button variant="ghost" className="w-full justify-start font-medium text-md">
