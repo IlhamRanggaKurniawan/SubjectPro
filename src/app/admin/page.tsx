@@ -8,7 +8,7 @@ const page = () => {
     return (
         <div className='p-2 md:p-8 w-full'>
             <h1 className='text-4xl font-bold mb-8'>Admin Dashboard</h1>
-            <div className='grid lg:grid-cols-2 gap-6'>
+            <div className='space-y-6 lg:grid lg:grid-cols-2 lg:gap-6'>
                 <AddTaskCard />
                 <AddSubjectCard />
                 <AddScheduleCard />

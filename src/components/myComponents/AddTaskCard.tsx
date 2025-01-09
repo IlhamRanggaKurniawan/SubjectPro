@@ -24,7 +24,6 @@ const AddTaskCard = () => {
     useEffect(() => {
         const fetchSubject = async () => {
             try {
-                console.log(session?.classId)
                 const subjects = await apiClient.get(`/v1/subject/${session?.classId}`, {
                     cache: "no-cache"
                 })
