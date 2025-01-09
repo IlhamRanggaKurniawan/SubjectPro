@@ -6,6 +6,11 @@ export const middleware = async (request: NextRequest) => {
     const { pathname } = request.nextUrl
     const session = await getSession()
 
+    if (request.nextUrl.pathname.startsWith("/_next/")) {
+        return NextResponse.next(); // Abaikan rute file statis
+    }
+
+
     if (refreshToken && (pathname === "/login" || pathname === "/register")) {
         return NextResponse.redirect(new URL("/", request.url))
     }
@@ -14,7 +19,9 @@ export const middleware = async (request: NextRequest) => {
         return NextResponse.redirect(new URL("/", request.url))
     }
 
-    if (!refreshToken && (pathname !== "/login" && pathname !== "/register")) {
-        return NextResponse.redirect(new URL("/login", request.url))
+    if (!refreshToken && (pathname !== '/login' && pathname !== '/register' && pathname !== "/")) {
+        return NextResponse.redirect(new URL('/login', request.url));
     }
+
+    return NextResponse.next();
 }

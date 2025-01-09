@@ -14,6 +14,8 @@ const getSession = async () => {
     try {
         const token = await getToken()
 
+        if(!token) return
+
         const decodedToken: token = jwtDecode(token)
 
         return decodedToken

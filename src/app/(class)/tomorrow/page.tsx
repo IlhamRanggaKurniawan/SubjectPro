@@ -1,7 +1,7 @@
 import SubjectCard from '@/components/myComponents/SubjectCard'
 import api from '@/lib/api'
 import React from 'react'
-import { Subject } from '../../../types/entity'
+import { Subject } from '../../../../types/entity'
 
 const page = async () => {
     const date = new Date()

@@ -60,7 +60,7 @@ const SideBar = () => {
             <div className="w-48 h-screen py-6 px-3 bg-white shadow-xl flex-shrink-0 fixed z-50 flex-col hidden md:flex lg:w-64 lg:p-6">
                 <h2 className="text-2xl font-semibold mb-6">StudyPro</h2>
                 <nav className="flex-grow flex flex-col gap-2">
-                    <Link href="/">
+                    <Link href="/dashboard">
                         <Button variant="ghost" className="w-full justify-start font-medium text-md">
                             <Home className="mr-2" size={27} />
                             Dashboard

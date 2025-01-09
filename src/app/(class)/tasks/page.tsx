@@ -1,7 +1,7 @@
 import TaskCard from '@/components/myComponents/TaskCard'
 import React from 'react'
-import { Subject } from '../../../types/entity'
 import api from '@/lib/api'
+import { Subject } from '../../../../types/entity'
 
 const page = async () => {
     const date = new Date()
